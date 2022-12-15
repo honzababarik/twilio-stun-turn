@@ -6,11 +6,14 @@ var twilio = require('twilio')(process.env.TWILIO_ACCOUNT_SID, process.env.TWILI
 
 var app = express();
 
+app.options('*', cors({
+  origin: ["https://roblox.slanglab.io"]
+));
 
-app.use(cors({
-  origin: '*',
-  optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204 
-}));
+// app.use(cors({
+  //origin: '*',
+ // optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204 
+//}));
 
 var cachedToken = null;
 
